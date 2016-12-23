@@ -1,0 +1,5 @@
+name: McTournaments
+version: ${project.version}
+main: net.mctournaments.bukkit.McTournaments
+authors: [HarryFreeborough]
+depend: [ProtocolLib]
