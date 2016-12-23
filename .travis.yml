@@ -4,3 +4,4 @@ jdk:
   - oraclejdk8
   
 install: ./spigotSetup.sh
+script: mvn clean install -U
