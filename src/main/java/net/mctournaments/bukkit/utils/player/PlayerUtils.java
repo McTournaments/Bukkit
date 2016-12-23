@@ -4,7 +4,7 @@ import com.comphenix.protocol.wrappers.EnumWrappers;
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
 import net.mctournaments.bukkit.utils.packetwrappers.WrapperPlayServerChat;
 import net.mctournaments.bukkit.utils.packetwrappers.WrapperPlayServerTitle;
-import net.mctournaments.common.profile.Profile;
+import net.mctournaments.bukkit.profile.Profile;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.OfflinePlayer;

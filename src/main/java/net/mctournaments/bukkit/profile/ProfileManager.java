@@ -2,8 +2,7 @@ package net.mctournaments.bukkit.profile;
 
 import com.google.common.collect.Iterables;
 import net.mctournaments.bukkit.profile.exceptions.ProfileNotFoundException;
-import net.mctournaments.common.profile.Profile;
-import net.mctournaments.common.profile.storage.ProfileStorageDao;
+import net.mctournaments.bukkit.profile.storage.ProfileStorageDao;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;

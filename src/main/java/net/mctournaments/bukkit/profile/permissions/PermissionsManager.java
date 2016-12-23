@@ -4,10 +4,8 @@ import static com.google.common.base.Preconditions.checkState;
 
 import com.google.common.collect.MapMaker;
 import net.mctournaments.bukkit.utils.player.PlayerUtils;
-import net.mctournaments.common.profile.Profile;
-import net.mctournaments.common.profile.Rank;
-import net.mctournaments.common.profile.permissions.RankData;
-import net.mctournaments.common.profile.permissions.RankDataDao;
+import net.mctournaments.bukkit.profile.Profile;
+import net.mctournaments.bukkit.profile.Rank;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.plugin.Plugin;

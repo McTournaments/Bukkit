@@ -1,6 +1,6 @@
 package net.mctournaments.bukkit.events;
 
-import net.mctournaments.common.profile.Profile;
+import net.mctournaments.bukkit.profile.Profile;
 import org.bukkit.event.Event;
 
 public abstract class ProfileEvent extends Event {

@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import com.harryfreeborough.modularity.Module;
 import net.mctournaments.bukkit.utils.message.Messages;
 import net.mctournaments.bukkit.profile.ProfileManager;
-import net.mctournaments.common.profile.Profile;
+import net.mctournaments.bukkit.profile.Profile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

@@ -14,7 +14,7 @@ import com.sk89q.intake.parametric.ProvisionException;
 import net.mctournaments.bukkit.utils.message.MessageType;
 import net.mctournaments.bukkit.utils.message.Messages;
 import net.mctournaments.bukkit.profile.ProfileManager;
-import net.mctournaments.common.profile.Profile;
+import net.mctournaments.bukkit.profile.Profile;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

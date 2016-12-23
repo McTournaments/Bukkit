@@ -1,6 +1,6 @@
 package net.mctournaments.bukkit.profile.exceptions;
 
-import net.mctournaments.common.profile.Profile;
+import net.mctournaments.bukkit.profile.Profile;
 
 /**
  * {@link RuntimeException} for when a {@link Profile} is not found.
