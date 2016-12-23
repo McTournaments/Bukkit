@@ -1,4 +1,4 @@
-package net.mctournaments.bukkit.data;
+package net.mctournaments.bukkit.utils.message;
 
 public enum MessageType {
 

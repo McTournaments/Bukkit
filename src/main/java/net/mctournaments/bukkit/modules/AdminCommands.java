@@ -1,10 +1,10 @@
 package net.mctournaments.bukkit.modules;
 
-import static net.mctournaments.bukkit.data.MessageType.ERROR;
-import static net.mctournaments.bukkit.data.MessageType.INFO;
-import static net.mctournaments.bukkit.data.MessageType.SUCCESS;
-import static net.mctournaments.bukkit.data.MessageType.WARNING;
-import static net.mctournaments.bukkit.data.Messages.send;
+import static net.mctournaments.bukkit.utils.message.MessageType.ERROR;
+import static net.mctournaments.bukkit.utils.message.MessageType.INFO;
+import static net.mctournaments.bukkit.utils.message.MessageType.SUCCESS;
+import static net.mctournaments.bukkit.utils.message.MessageType.WARNING;
+import static net.mctournaments.bukkit.utils.message.Messages.send;
 
 import com.google.inject.Inject;
 import com.harryfreeborough.modularity.Module;
@@ -12,8 +12,8 @@ import com.sk89q.intake.Command;
 import com.sk89q.intake.CommandException;
 import com.sk89q.intake.Require;
 import net.mctournaments.bukkit.command.Sender;
-import net.mctournaments.bukkit.data.MessageType;
-import net.mctournaments.bukkit.data.Messages;
+import net.mctournaments.bukkit.utils.message.MessageType;
+import net.mctournaments.bukkit.utils.message.Messages;
 import net.mctournaments.bukkit.events.lifecycle.ReloadConfigEvent;
 import net.mctournaments.bukkit.profile.ProfileManager;
 import net.mctournaments.bukkit.profile.permissions.PermissionsManager;

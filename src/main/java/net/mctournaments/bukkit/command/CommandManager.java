@@ -1,11 +1,11 @@
 package net.mctournaments.bukkit.command;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static net.mctournaments.bukkit.data.MessageType.ERROR;
-import static net.mctournaments.bukkit.data.MessageType.INFO;
-import static net.mctournaments.bukkit.data.MessageType.INFO_ALTERNATIVE;
-import static net.mctournaments.bukkit.data.MessageType.WARNING;
-import static net.mctournaments.bukkit.data.Messages.send;
+import static net.mctournaments.bukkit.utils.message.MessageType.ERROR;
+import static net.mctournaments.bukkit.utils.message.MessageType.INFO;
+import static net.mctournaments.bukkit.utils.message.MessageType.INFO_ALTERNATIVE;
+import static net.mctournaments.bukkit.utils.message.MessageType.WARNING;
+import static net.mctournaments.bukkit.utils.message.Messages.send;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;

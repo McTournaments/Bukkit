@@ -1,4 +1,4 @@
-package net.mctournaments.bukkit.data;
+package net.mctournaments.bukkit.utils.message;
 
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
 import net.mctournaments.bukkit.utils.packetwrappers.WrapperPlayServerChat;
