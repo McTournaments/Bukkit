@@ -4,6 +4,7 @@ mkdir target/spigot
 cd target/spigot
 
 wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=128m"
 java -jar BuildTools.jar --rev 1.11.2
 
 cd ..
