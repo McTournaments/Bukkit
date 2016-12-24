@@ -2,13 +2,12 @@ sudo: required
 language: java
 jdk:
 - oraclejdk8
-
 install: ./spigotSetup.sh
 script: mvn clean install
-
 deploy:
   provider: releases
-  api_key: "$GITHUB_OAUTH_TOKEN"
+  api_key:
+    secure: $GITHUB_OAUTH_TOKEN
   file: target/bukkit-1.0-SNAPSHOT.jar
   on:
     repo: McTournaments/Bukkit
