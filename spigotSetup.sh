@@ -4,12 +4,7 @@ mkdir target/spigot
 cd target/spigot
 
 wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
-<<<<<<< HEAD
-export MAVEN_OPTS="-Xmx2048m"
 java -jar BuildTools.jar --rev 1.11.2
-=======
-java -jar BuildTools.jar --rev 1.11.2 | grep -vE "[^/ ]*/[^/ ]*\s*KB\s*$" | grep -v "^\s*$"
->>>>>>> d4f81bd83ba6d56a83e6d4b5ee551d780f1fc477
 
 cd ..
 
