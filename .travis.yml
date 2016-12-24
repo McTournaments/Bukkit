@@ -7,7 +7,7 @@ script: mvn clean install
 deploy:
   provider: releases
   api_key:
-    secure: $GITHUB_OAUTH_TOKEN
+    secure: xVG86hveuyb+j8jwR4dVJiVC9vJtk8oyPY96EJ3sDSdtvD5QA4NhG5U4+7AF6Lp1eYYO5v7kCxP/iPau9kgoxMXcd2ig4IFtnEg1NoJZ58qofRpZercJIzkJfLpD8jOtqf/1Mhhv9LoLG23T46fSwE6dxKm8Z6sa4th5nwimgoWZsh4iG1TvlA83mkPJ1LjG5OB/W0PZLTvgYS2HJDKitTDG8zaDcduGv45rhADLgkjjObEbDmdxz2WAsH0pCmQ1E2jkCxUR+atYqD+lykpdWar8Zvztv1P4AVlVAsbvnHzG5XJYSLYDkn48YCq1IydlOpz1vYn3FbZavC9lM16YiCxG60+97tSXTLBjAMEz2xDtvvukCcrVv4A3mcx9ivW69prlTDb5pG6iKK5hjzNS5W/IX9Rxqj8qf2k4e/ZNGUyL/rlKY94zbUqZDnkS+MWUOUmVd9SfY+WmjstT+bf+1s+62vy+or+hGwuoYhALPZrIHg2qodHl57se4v0HBHWmGSP9xaPNh8XDgWMnFHvf+RYox0eKRA7nAfRvi2k/rhsjOlVjx3ZgZv34ZGqcTrWMOu1g57lFwnUOD50cikU3tPHl8LhtaG/L16oMqZq+7JFGglz8DflWn8whCOPkDxZ46NUG56k31oRIvAz48FxPowioMwGdFLRUYnJD6Yvkty8=
   file: target/bukkit-1.0-SNAPSHOT.jar
   on:
     repo: McTournaments/Bukkit
