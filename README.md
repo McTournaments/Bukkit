@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/McTournaments/Bukkit.svg?branch=master)](https://travis-ci.org/McTournaments/Bukkit)
