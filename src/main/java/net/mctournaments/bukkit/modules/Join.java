@@ -1,12 +1,14 @@
 package net.mctournaments.bukkit.modules;
 
+import static org.bukkit.ChatColor.GRAY;
+import static org.bukkit.ChatColor.YELLOW;
+
 import com.google.inject.Inject;
 import com.harryfreeborough.modularity.Module;
-import net.mctournaments.bukkit.utils.message.Messages;
-import net.mctournaments.bukkit.profile.ProfileManager;
 import net.mctournaments.bukkit.profile.Profile;
+import net.mctournaments.bukkit.profile.ProfileManager;
 import net.mctournaments.bukkit.profile.Rank;
-import org.bukkit.ChatColor;
+import net.mctournaments.bukkit.utils.message.Messages;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -22,10 +24,10 @@ public class Join implements Listener {
 
         String prefix = Messages.colorize(profile.getVisibleRank().getFormattedName()) + " ";
         if (profile.getVisibleRank() == Rank.DEFAULT) {
-            prefix = ChatColor.GRAY.toString();
+            prefix = GRAY.toString();
         }
 
-        event.setJoinMessage(prefix + event.getPlayer().getDisplayName() + ChatColor.YELLOW + " has joined!");
+        event.setJoinMessage(prefix + event.getPlayer().getDisplayName() + YELLOW + " has joined!");
     }
 
 }

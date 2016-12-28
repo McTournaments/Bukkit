@@ -3,9 +3,9 @@ package net.mctournaments.bukkit.profile.permissions;
 import static com.google.common.base.Preconditions.checkState;
 
 import com.google.common.collect.MapMaker;
-import net.mctournaments.bukkit.utils.player.PlayerUtils;
 import net.mctournaments.bukkit.profile.Profile;
 import net.mctournaments.bukkit.profile.Rank;
+import net.mctournaments.bukkit.utils.player.PlayerUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.plugin.Plugin;
@@ -59,7 +59,7 @@ public class PermissionsManager {
         PermissionAttachment attachment = player.get().addAttachment(this.plugin);
 
         NavigableSet<Rank> permRanks = new TreeSet<>();
-        profile.getRanks().asNavigatableSet().forEach(rank -> permRanks.addAll(rank.inheritanceTree()));
+        profile.getRanks().asNavigableSet().forEach(rank -> permRanks.addAll(rank.inheritanceTree()));
 
         permRanks.forEach(rank -> {
             RankData rankData = this.rankData.get(rank);

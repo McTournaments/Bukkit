@@ -2,9 +2,9 @@ package net.mctournaments.bukkit.modules;
 
 import com.google.inject.Inject;
 import com.harryfreeborough.modularity.Module;
+import net.mctournaments.bukkit.profile.Profile;
 import net.mctournaments.bukkit.profile.ProfileManager;
 import net.mctournaments.bukkit.profile.permissions.PermissionsManager;
-import net.mctournaments.bukkit.profile.Profile;
 import net.mctournaments.bukkit.profile.storage.ProfileStorageDao;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

@@ -12,15 +12,15 @@ import com.sk89q.intake.Command;
 import com.sk89q.intake.CommandException;
 import com.sk89q.intake.Require;
 import net.mctournaments.bukkit.command.Sender;
-import net.mctournaments.bukkit.utils.message.MessageType;
-import net.mctournaments.bukkit.utils.message.Messages;
 import net.mctournaments.bukkit.events.lifecycle.ReloadConfigEvent;
 import net.mctournaments.bukkit.profile.ProfileManager;
-import net.mctournaments.bukkit.profile.permissions.PermissionsManager;
-import net.mctournaments.bukkit.profile.Profile;
 import net.mctournaments.bukkit.profile.Rank;
+import net.mctournaments.bukkit.profile.permissions.PermissionsManager;
+import net.mctournaments.bukkit.utils.message.MessageType;
+import net.mctournaments.bukkit.utils.message.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
 import java.time.Instant;
@@ -29,11 +29,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Arrays;
 import java.util.Locale;
-import java.util.Optional;
-import java.util.function.Consumer;
 
 @Module(name = "AdminCommands")
-public class AdminCommands {
+public class AdminCommands implements Listener {
 
     private final DateTimeFormatter dataTimeFormatter;
 
@@ -134,15 +132,6 @@ public class AdminCommands {
             send(sender, INFO, "First join: %s.", this.dataTimeFormatter.format(Instant.ofEpochMilli(profile.getFirstJoin())));
             send(sender, INFO, "Last join: %s.", this.dataTimeFormatter.format(Instant.ofEpochMilli(profile.getLastJoin())));
         }, () -> send(sender, ERROR, "Could not find profile for: '%s'.", target));
-    }
-
-    private void modifyProfile(String target, Consumer<Profile> consumer, Runnable notFound) {
-        Optional<Profile> optProfile = this.profileManager.getProfile(target);
-        if (optProfile.isPresent()) {
-            consumer.accept(optProfile.get());
-        } else {
-            notFound.run();
-        }
     }
 
 }

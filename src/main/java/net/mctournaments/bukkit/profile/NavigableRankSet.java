@@ -90,7 +90,7 @@ public class NavigableRankSet {
         return this.base.stream().anyMatch(r -> r.inheritanceTree().contains(rank));
     }
 
-    public NavigableSet<Rank> asNavigatableSet() {
+    public NavigableSet<Rank> asNavigableSet() {
         return Collections.unmodifiableNavigableSet(this.base);
     }
 

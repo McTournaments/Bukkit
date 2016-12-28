@@ -11,6 +11,7 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
+import com.harryfreeborough.modularity.injector.AutoRegister;
 import com.sk89q.intake.Command;
 import com.sk89q.intake.CommandException;
 import com.sk89q.intake.CommandMapping;
@@ -26,21 +27,22 @@ import com.sk89q.intake.parametric.Module;
 import com.sk89q.intake.parametric.ParametricBuilder;
 import com.sk89q.intake.parametric.provider.PrimitivesModule;
 import com.sk89q.intake.util.auth.AuthorizationException;
+import net.mctournaments.bukkit.events.lifecycle.InitializationEvent;
 import net.mctournaments.bukkit.profile.ProfileManager;
+import net.mctournaments.bukkit.utils.ReflectionUtils;
 import net.mctournaments.bukkit.utils.logging.Logging;
-import net.mctournaments.bukkit.utils.reflection.ReflectionUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.plugin.Plugin;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+@AutoRegister
 public class CommandManager implements Listener {
 
     private static final Joiner argJoiner = Joiner.on(" ");
@@ -62,15 +64,11 @@ public class CommandManager implements Listener {
         this.builder.setAuthorizer(new AuthorizerAdapter());
 
         this.dispatcher = new SimpleDispatcher();
-
-        this.plugin.getServer().getPluginManager().registerEvents(this, this.plugin);
     }
 
     @EventHandler
-    public void onPluginEnable(PluginEnableEvent event) {
-        if (event.getPlugin().equals(this.plugin)) {
-            this.registerCommandsToBukkit();
-        }
+    public void onPluginEnable(InitializationEvent event) {
+        this.registerCommandsToBukkit();
     }
 
     public void installModule(Module module) {

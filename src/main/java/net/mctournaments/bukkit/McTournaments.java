@@ -6,17 +6,18 @@ import com.harryfreeborough.modularity.loader.ModuleLoader;
 import net.mctournaments.bukkit.config.ConfigFactory;
 import net.mctournaments.bukkit.config.SetTypeSerializer;
 import net.mctournaments.bukkit.events.lifecycle.InitializationEvent;
-import net.mctournaments.bukkit.events.lifecycle.PostInitializationEvent;
+import net.mctournaments.bukkit.events.lifecycle.PreInitializationEvent;
+import net.mctournaments.bukkit.menu.MenuListener;
 import net.mctournaments.bukkit.module.CoreModule;
 import net.mctournaments.bukkit.module.HoconModuleConfig;
 import net.mctournaments.bukkit.module.McTournamentsGuiceModule;
 import net.mctournaments.bukkit.profile.ProfileManager;
+import net.mctournaments.bukkit.profile.permissions.MongoRankDataDao;
 import net.mctournaments.bukkit.profile.permissions.PermissionsManager;
+import net.mctournaments.bukkit.profile.storage.MongoProfileStorageDao;
 import net.mctournaments.bukkit.utils.logging.Debugger;
 import net.mctournaments.bukkit.utils.logging.Logging;
 import net.mctournaments.bukkit.utils.logging.PluginDebugOpts;
-import net.mctournaments.bukkit.profile.permissions.MongoRankDataDao;
-import net.mctournaments.bukkit.profile.storage.MongoProfileStorageDao;
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
 import ninja.leaping.configurate.objectmapping.serialize.TypeSerializers;
@@ -41,6 +42,7 @@ public final class McTournaments extends JavaPlugin {
         this.setupProfileAndPermissionManager();
         this.setupInjector();
         this.callEvents();
+        this.registerListeners();
     }
 
     @Override
@@ -58,6 +60,7 @@ public final class McTournaments extends JavaPlugin {
         Logging.setNab(this::getLogger);
 
         PluginDebugOpts opts = new PluginDebugOpts(this.getLogger());
+        opts.toggleOutput(true);
         Debugger.DebugUtil.setOps(() -> opts);
         PluginDebugOpts.hookBukkit();
     }
@@ -101,8 +104,12 @@ public final class McTournaments extends JavaPlugin {
     }
 
     private void callEvents() {
+        this.getServer().getPluginManager().callEvent(new PreInitializationEvent());
         this.getServer().getPluginManager().callEvent(new InitializationEvent());
-        this.getServer().getPluginManager().callEvent(new PostInitializationEvent());
+    }
+
+    private void registerListeners() {
+        this.getServer().getPluginManager().registerEvents(new MenuListener(), this);
     }
 
     public ProfileManager getProfileManager() {

@@ -7,7 +7,7 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.inject.Inject;
 import com.harryfreeborough.modularity.injector.AutoRegister;
-import net.mctournaments.bukkit.events.lifecycle.InitializationEvent;
+import net.mctournaments.bukkit.events.lifecycle.PreInitializationEvent;
 import net.mctournaments.bukkit.events.lifecycle.ReloadConfigEvent;
 import net.mctournaments.bukkit.utils.logging.Logging;
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
@@ -57,12 +57,12 @@ public class ConfigFactory implements Listener {
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
-    public void onInitialization(InitializationEvent event) {
+    public void onInitialization(PreInitializationEvent event) {
         this.loadConfigs();
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void onInitializationLate(InitializationEvent event) {
+    public void onInitializationLate(PreInitializationEvent event) {
         this.saveConfigs();
     }
 

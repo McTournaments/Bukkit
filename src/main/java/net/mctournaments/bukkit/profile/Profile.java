@@ -190,7 +190,7 @@ public class Profile {
      * @return rank to be visible in chat and other things such as tab color
      */
     public Rank getVisibleRank() {
-        return this.getRanks().asNavigatableSet().last();
+        return this.getRanks().asNavigableSet().last();
     }
 
     public boolean equals(Object o) {

@@ -3,7 +3,7 @@ package net.mctournaments.bukkit.events.lifecycle;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class PostInitializationEvent extends Event {
+public class PreInitializationEvent extends Event {
 
     private static HandlerList handlers = new HandlerList();
 

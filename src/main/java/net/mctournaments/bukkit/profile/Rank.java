@@ -1,5 +1,11 @@
 package net.mctournaments.bukkit.profile;
 
+import static org.bukkit.ChatColor.AQUA;
+import static org.bukkit.ChatColor.GRAY;
+import static org.bukkit.ChatColor.GREEN;
+import static org.bukkit.ChatColor.RED;
+import static org.bukkit.ChatColor.WHITE;
+
 import java.util.NavigableSet;
 import java.util.TreeSet;
 
@@ -10,15 +16,15 @@ import java.util.TreeSet;
  */
 public enum Rank {
 
-    DEFAULT(null, "&7Default") {
+    DEFAULT(null, GRAY + "Default") {
         @Override
         public String getChatFormat() {
-            return "&7%s: %s";
+            return GRAY + "%s: %s";
         }
-    }, DONATOR(DEFAULT, "&aDonor"),
-    MOD(DEFAULT, "&bMod"),
-    ADMIN(MOD, "&cAdmin"),
-    SUPER_ADMIN(ADMIN, "&cAdmin");
+    }, DONATOR(DEFAULT, GREEN + "Donor"),
+    MOD(DEFAULT, AQUA + "Mod"),
+    ADMIN(MOD, RED + "Admin"),
+    SUPER_ADMIN(ADMIN, RED + "Admin");
 
     private final Rank inheritsFrom;
     private final String formattedName;
@@ -50,7 +56,7 @@ public enum Rank {
     }
 
     public String getChatFormat() {
-        return this.formattedName + " | %s&f: %s";
+        return this.formattedName + " | %s" + WHITE + ": %s";
     }
 
 }

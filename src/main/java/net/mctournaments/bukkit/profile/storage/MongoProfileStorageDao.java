@@ -1,6 +1,5 @@
 package net.mctournaments.bukkit.profile.storage;
 
-import static com.google.common.base.Preconditions.checkNotNull;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.text;
 
@@ -208,7 +207,7 @@ public class MongoProfileStorageDao implements ProfileStorageDao {
 
     @Override public void insert(Profile profile) {
         this.coll.insertOne(new Document("_id", profile.getUniqueId().toString())
-                .append("ranks", profile.getRanks().asNavigatableSet().stream().map(Rank::name).collect(Collectors.toList()))
+                .append("ranks", profile.getRanks().asNavigableSet().stream().map(Rank::name).collect(Collectors.toList()))
                 .append("lastKnownUsername", profile.getLastKnownUsername())
                 .append("lastKnownIp", profile.getLastKnownIp())
                 .append("knownUsernames", profile.getKnownUsernames())

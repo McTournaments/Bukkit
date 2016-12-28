@@ -1,6 +1,8 @@
 package net.mctournaments.bukkit.utils.nms;
 
-import com.google.common.base.Preconditions;
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import net.minecraft.server.v1_11_R1.NBTBase;
 import net.minecraft.server.v1_11_R1.NBTTagCompound;
 import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftItemStack;
@@ -30,17 +32,42 @@ public class NbtTags {
         this.compound = compound;
     }
 
+    /**
+     * Creates a blank set of nbt data.
+     *
+     * @return Blank {@link NbtTags} instance
+     */
     public static NbtTags create() {
         return new NbtTags(new NBTTagCompound());
     }
 
+    /**
+     * Creates a new {@link NbtTags} object.
+     * Varies from {@link NbtTags#craftCreate(ItemStack)} (ItemStack)} as any values that are set
+     * in the returned {@link NbtTags} instance, are not reflected onto the
+     * supplied {@link ItemStack}'s nbt data.
+     *
+     * @param base Base {@link ItemStack} to copy data from
+     * @return {@link NbtTags} instance based on the supplied {@link ItemStack}
+     */
     public static NbtTags create(ItemStack base) {
         return craftCreate(NmsItems.bukkitToCraft(base));
     }
 
+    /**
+     * Creates a new {@link NbtTags} object.
+     * Varies from {@link NbtTags#create(ItemStack)} as any values that are set
+     * in the returned {@link NbtTags} instance, are reflected onto the
+     * supplied {@link ItemStack}'s nbt data.
+     *
+     * @param base Base {@link ItemStack}, must be an instance of {@link CraftItemStack}.
+     * @return {@link NbtTags} instance based on the supplied {@link ItemStack}
+     */
     public static NbtTags craftCreate(ItemStack base) {
-        Preconditions.checkArgument(base instanceof CraftItemStack, "craftCreate must be used with a CraftItemStack");
+        checkNotNull(base, "base craftCreate input");
+        checkArgument(base instanceof CraftItemStack, "craftCreate must be used with a CraftItemStack");
         net.minecraft.server.v1_11_R1.ItemStack nmsItem = NmsItems.craftToNms(base);
+        checkNotNull(nmsItem, "nmsItem");
 
         NBTTagCompound compound = nmsItem.getTag();
         if (compound == null) {
